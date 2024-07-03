@@ -21,7 +21,7 @@ jobs:
           node-version: 20
       - run: yarn
         #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@vlatest
+      - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
         with:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
