@@ -5,8 +5,26 @@ name: "Chromatic"
 on: push
 
 jobs:
-  chromatic:
-    name: Run Chromatic
+  interaction-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        name: Setup Bun
+      - name: Install dependencies
+        run: bun install
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Build Storybook
+        run: bun build-storybook --quiet
+      - name: Serve Storybook and run tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server storybook-static --port 6006 --silent" \
+            "npx wait-on tcp:6006 && yarn test-storybook"
+  visual-tests:
+    name: Run Visual Test with Chromatic
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
