@@ -21,7 +21,7 @@ jobs:
         with:
           #👇 Sets the version of Node.js to use
           node-version: 20
-      - run: bun
+      - run: yarn
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
         name: Run Chromatic
