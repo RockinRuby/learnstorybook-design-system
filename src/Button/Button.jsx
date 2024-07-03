@@ -1,9 +1,10 @@
-import { forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import { darken, rgba } from 'polished';
 import { color, typography } from '../shared/styles';
+import { darken, rgba } from 'polished';
+
+import PropTypes from 'prop-types';
 import { easing } from '../shared/animation';
+import { forwardRef } from 'react';
+import styled from '@emotion/styled';
 
 const Text = styled.span`
   display: inline-block;
@@ -33,7 +34,8 @@ const SIZES = {
 };
 
 const StyledButton = styled.button`
-  border: 0;
+  border: 10px solid red;
+  font-size: 20px;
   border-radius: 3em;
   cursor: pointer;
   display: inline-block;
@@ -158,9 +160,8 @@ const StyledButton = styled.button`
       background: ${color.primary};
       color: ${color.lightest};
 
-      ${
-        !props.isLoading &&
-        `
+      ${!props.isLoading &&
+    `
           &:hover {
             background: ${darken(0.05, color.primary)};
           }
@@ -174,7 +175,7 @@ const StyledButton = styled.button`
             box-shadow: ${rgba(color.primary, 0.2)} 0 8px 18px 0px;
           }
         `
-      }
+    }
     `}
 
   ${(props) =>
@@ -183,9 +184,8 @@ const StyledButton = styled.button`
       background: ${color.secondary};
       color: ${color.lightest};
 
-      ${
-        !props.isLoading &&
-        `
+      ${!props.isLoading &&
+    `
           &:hover {
             background: ${darken(0.05, color.secondary)};
           }
@@ -199,7 +199,7 @@ const StyledButton = styled.button`
             box-shadow: ${rgba(color.secondary, 0.2)} 0 8px 18px 0px;
           }
         `
-      }
+    }
     `}
 
   ${(props) =>
@@ -208,9 +208,8 @@ const StyledButton = styled.button`
       background: ${color.tertiary};
       color: ${color.darkest};
 
-      ${
-        !props.isLoading &&
-        `
+      ${!props.isLoading &&
+    `
           &:hover {
             background: ${darken(0.05, color.tertiary)};
           }
@@ -224,7 +223,7 @@ const StyledButton = styled.button`
             box-shadow: ${rgba(color.tertiary, 0.2)} 0 8px 18px 0px;
           }
         `
-      }
+    }
     `}
 
   ${(props) =>
@@ -234,9 +233,8 @@ const StyledButton = styled.button`
       color: ${color.dark};
       background: transparent;
 
-      ${
-        !props.isLoading &&
-        `
+      ${!props.isLoading &&
+    `
           &:hover {
             box-shadow: ${color.mediumdark} 0 0 0 1px inset;
           }
@@ -248,18 +246,18 @@ const StyledButton = styled.button`
           }
           &:focus {
             box-shadow: ${color.medium} 0 0 0 1px inset, ${rgba(
-          color.secondary,
-          0.4,
-        )} 0 1px 9px 2px;
+      color.secondary,
+      0.4,
+    )} 0 1px 9px 2px;
           }
           &:focus:hover {
             box-shadow: ${color.medium} 0 0 0 1px inset, ${rgba(
-          color.secondary,
-          0.2,
-        )} 0 8px 18px 0px;
+      color.secondary,
+      0.2,
+    )} 0 8px 18px 0px;
           }
         `
-      };
+    };
     `};
 
   ${(props) =>
