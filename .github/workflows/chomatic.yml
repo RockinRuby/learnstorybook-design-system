@@ -22,7 +22,7 @@ jobs:
         run: |
           npx concurrently -k -s last -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006" \
-            "npx wait-on tcp:127:0:0:1:6006 --timeout 1m && bun test-storybook"
+            "npx wait-on tcp:127.0.0.1:6006 --timeout 1m && bun test-storybook"
   visual-tests:
     name: Run Visual Test with Chromatic
     runs-on: ubuntu-latest
