@@ -20,9 +20,9 @@ jobs:
         run: bun build-storybook --quiet
       - name: Serve Storybook and run tests
         run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+          npx concurrently -k -s last -n "SB,TEST" -c "magenta,blue" \
             "npx http-server storybook-static --port 6006" \
-            "npx wait-on tcp:6006 && bun test-storybook"
+            "npx wait-on tcp:6006 --tcpTimeout 3m && bun test-storybook"
   visual-tests:
     name: Run Visual Test with Chromatic
     runs-on: ubuntu-latest
